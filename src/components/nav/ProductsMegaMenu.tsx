@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { productsNav, type NavProductItem } from "@/data/nav";
-import { AquaEnvIcon } from "./icons";
-
-const imageIcons: Partial<Record<NavProductItem["iconKey"], string>> = {
-  saas: "/images/logos/saas-accounting-logo.jpg",
+const imageIcons: Record<NavProductItem["iconKey"], string> = {
+  saas: "/images/logos/saas-accounting-logo.png",
   chemops: "/images/logos/logo-chemops.jpg",
+  aquaenv: "/images/logos/aquaenv-logo.png",
   originvn: "/images/logos/origintrace-leaf.jpg",
 };
 
@@ -18,11 +17,7 @@ export default function ProductsMegaMenu() {
             <Link key={item.href} href={item.href} className="nav-menu-card product-menu-card">
               <div className="flex items-center gap-2 mb-3">
                 <span className="menu-icon">
-                  {item.iconKey === "aquaenv" ? (
-                    <AquaEnvIcon />
-                  ) : (
-                    <Image src={imageIcons[item.iconKey]!} alt={item.title} width={28} height={28} />
-                  )}
+                  <Image src={imageIcons[item.iconKey]} alt={item.title} width={28} height={28} />
                 </span>
                 <span className="font-semibold text-slate-800">{item.title}</span>
               </div>

@@ -4,7 +4,6 @@ import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import BackLink from "@/components/ui/BackLink";
 import {
-  Droplets,
   RefreshCw,
   BarChart3,
   Receipt,
@@ -20,6 +19,8 @@ import {
   Camera,
   CheckCircle2,
   Sparkles,
+  FlaskConical,
+  Layers,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -67,18 +68,14 @@ export default function ProductsPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { href: "#saas-ke-toan", label: "SaaS Kế toán", src: "/images/logos/saas-accounting-logo.jpg" },
+              { href: "#saas-ke-toan", label: "SaaS Kế toán", src: "/images/logos/saas-accounting-logo.png" },
               { href: "/chemops", label: "CHEMOPS", src: "/images/logos/logo-chemops.jpg" },
-              { href: "#aquaenv", label: "AquaEnv", src: null },
+              { href: "#aquaenv", label: "AquaEnv", src: "/images/logos/aquaenv-logo.png" },
               { href: "#originvn", label: "OriginVN – Nông Nghiệp Số", src: "/images/logos/origintrace-leaf.jpg" },
             ].map((p) => (
               <Link key={p.label} href={p.href} className="quicknav-pill flex items-center gap-2.5 px-[18px] py-3 rounded-xl border border-[#eef1f3] bg-white text-sm font-semibold text-ink transition hover:border-[#d8dde3] hover:-translate-y-0.5 hover:shadow-md">
                 <span className="w-8 h-8 flex items-center justify-center relative text-blue">
-                  {p.src ? (
-                    <Image src={p.src} alt={p.label} fill className="object-contain" />
-                  ) : (
-                    <Droplets size={20} strokeWidth={2} />
-                  )}
+                  <Image src={p.src} alt={p.label} fill className="object-contain" />
                 </span>
                 {p.label}
               </Link>
@@ -88,14 +85,14 @@ export default function ProductsPage() {
       </section>
 
       {/* SAAS KẾ TOÁN */}
-      <section id="saas-ke-toan" className="py-[88px]">
+      <section id="saas-ke-toan" className="py-[88px] bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="mb-8">
               <div className="text-xs font-bold tracking-widest uppercase text-blue">Tài chính - Kế toán</div>
               <h2 className="text-[26px] font-bold text-ink mt-0.5">SaaS Kế toán</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="text-slate-500 text-[15px] leading-relaxed mb-8">
                   Quản lý tài chính doanh nghiệp toàn diện, tích hợp trực tiếp với MISA và các nền
@@ -111,53 +108,80 @@ export default function ProductsPage() {
                   Liên hệ
                 </Link>
               </div>
-              <div className="min-h-[380px] bg-white flex items-center justify-center relative">
-                <Image src="/images/products/saas-accounting-hero.jpg" alt="Hình minh họa SaaS Kế toán" width={600} height={380} className="w-full h-auto p-7" />
+
+              {/* Showcase SaaS Kế toán */}
+              <div className="relative rounded-3xl border border-slate-200/80 shadow-md overflow-hidden w-full aspect-square flex items-center justify-center bg-white">
+                <Image
+                  src="/images/products/saas-accounting-dashboard-hd.jpg"
+                  alt="Giao diện phần mềm SaaS Kế toán kết nối đồng bộ MISA theo thời gian thực"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  quality={95}
+                  className="object-cover w-full h-full block"
+                  priority
+                />
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* CHEMOPS teaser */}
-      <section id="chemops" className="py-[88px]">
+      {/* CHEMOPS */}
+      <section id="chemops" className="py-[88px] bg-[#F7FBF8] border-y border-slate-100/80">
         <div className="max-w-6xl mx-auto px-6">
-          <Reveal className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-6">
-                <div className="text-xs font-bold tracking-widest uppercase text-green">Hóa chất công nghiệp</div>
-                <h2 className="text-[26px] font-bold text-ink mt-0.5">CHEMOPS</h2>
-              </div>
-              <p className="text-slate-500 text-[15px] leading-relaxed mb-7">
-                Nền tảng quản trị doanh nghiệp hóa chất toàn diện — từ vận hành nội bộ, AI thông
-                minh đến hệ sinh thái kết nối toàn ngành. Có lộ trình triển khai 3 giai đoạn chi
-                tiết trên trang riêng.
-              </p>
-              <div className="flex flex-wrap gap-3.5">
-                <Link href="/chemops" className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-[10px] font-semibold text-[15px]">
-                  Xem chi tiết CHEMOPS →
-                </Link>
-                <Link href="/contact?product=chemops#trial" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-[10px] font-semibold text-[15px] border border-slate-300 text-ink">
-                  Liên hệ
-                </Link>
-              </div>
+          <Reveal>
+            <div className="mb-8">
+              <div className="text-xs font-bold tracking-widest uppercase text-green">Hóa chất công nghiệp</div>
+              <h2 className="text-[26px] font-bold text-ink mt-0.5">CHEMOPS</h2>
             </div>
-            <div className="flex items-center justify-center relative w-[260px] h-[120px] mx-auto">
-              <Image src="/images/logos/logo-chemops.jpg" alt="CHEMOPS" fill className="object-contain" />
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div>
+                <p className="text-slate-500 text-[15px] leading-relaxed mb-8">
+                  Nền tảng quản trị doanh nghiệp hóa chất toàn diện — từ vận hành nội bộ, AI thông
+                  minh đến hệ sinh thái kết nối toàn ngành. Có lộ trình triển khai 3 giai đoạn chi
+                  tiết trên trang riêng.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  <FeatureCard color="var(--color-green)" title="Quản trị kho & SDS" description="Quản lý an toàn hóa chất, hạn dùng & phân loại theo chuẩn GHS." icon={<FlaskConical size={20} strokeWidth={1.8} className="text-green" />} />
+                  <FeatureCard color="var(--color-green)" title="Kiểm soát tuân thủ" description="Tự động xuất báo cáo định kỳ nộp cơ quan quản lý Nhà nước." icon={<ShieldCheck size={20} strokeWidth={1.8} className="text-green" />} />
+                  <FeatureCard color="var(--color-green)" title="AI định mức sản xuất" description="Tối ưu tỷ lệ pha chế, cảnh báo thất thoát và giảm hao hụt." icon={<Sparkles size={20} strokeWidth={1.8} className="text-green" />} />
+                  <FeatureCard color="var(--color-green)" title="Lộ trình 3 giai đoạn" description="Từ số hóa nội bộ, ERP chuyên sâu đến sàn thương mại toàn ngành." icon={<Layers size={20} strokeWidth={1.8} className="text-green" />} />
+                </div>
+                <div className="flex flex-wrap gap-3.5">
+                  <Link href="/chemops" className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-[10px] font-semibold text-[15px]">
+                    Xem chi tiết CHEMOPS →
+                  </Link>
+                  <Link href="/contact?product=chemops#trial" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-[10px] font-semibold text-[15px] border border-slate-300 text-ink hover:border-slate-400 bg-white transition-colors">
+                    Liên hệ
+                  </Link>
+                </div>
+              </div>
+
+              {/* Showcase CHEMOPS */}
+              <div className="relative rounded-3xl border border-slate-200/80 shadow-md overflow-hidden w-full aspect-square flex items-center justify-center bg-white">
+                <Image
+                  src="/images/products/chemops-dashboard-hd.jpg"
+                  alt="Nền tảng quản trị doanh nghiệp hóa chất toàn diện CHEMOPS"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  quality={95}
+                  className="object-cover w-full h-full block"
+                />
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* AQUAENV */}
-      <section id="aquaenv" className="py-[88px]">
+      <section id="aquaenv" className="py-[88px] bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="mb-8">
               <div className="text-xs font-bold tracking-widest uppercase text-blue">Môi trường - Nước thải</div>
               <h2 className="text-[26px] font-bold text-ink mt-0.5">AquaEnv</h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="text-slate-500 text-[15px] leading-relaxed mb-8">
                   Giám sát nhà máy xử lý nước thải theo thời gian thực bằng SCADA, IoT và trí tuệ
@@ -173,14 +197,17 @@ export default function ProductsPage() {
                   Liên hệ
                 </Link>
               </div>
-              <div className="min-h-[380px] bg-white flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-blue/10 flex items-center justify-center mx-auto mb-3 text-blue">
-                    <Droplets size={28} strokeWidth={1.5} />
-                  </div>
-                  <p className="text-[13px] font-semibold text-blue">Hình minh họa AquaEnv</p>
-                  <p className="text-[11px] text-slate-400 mt-1">Giám sát nước thải realtime</p>
-                </div>
+
+              {/* Showcase AquaEnv */}
+              <div className="relative rounded-3xl border border-slate-200/80 shadow-md overflow-hidden w-full aspect-square flex items-center justify-center bg-white">
+                <Image
+                  src="/images/products/aquaenv-dashboard-hd.jpg"
+                  alt="Hệ thống giám sát nhà máy xử lý nước thải AquaEnv bằng SCADA và IoT"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  quality={95}
+                  className="object-cover w-full h-full block"
+                />
               </div>
             </div>
           </Reveal>
@@ -236,6 +263,7 @@ export default function ProductsPage() {
                         alt="Giao diện ứng dụng di động OriginVN – Nông Nghiệp Số"
                         width={500}
                         height={1080}
+                        quality={95}
                         className="w-full h-auto object-cover block"
                         priority
                       />

@@ -46,7 +46,7 @@
    `className="mobile-nav lg:hidden"` actually hide on desktop. */
 @layer components {
 
-/* ---------- Sticky header ---------- */
+/* ---------- Sticky header with entrance animation ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -55,9 +55,62 @@
   background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid #eef1f3;
   padding: 8px 0;
+  animation: headerSlideDown 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .site-header.scrolled {
   box-shadow: 0 4px 20px rgba(0, 48, 135, 0.06);
+}
+
+.site-brand {
+  animation: navItemFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+.site-header nav > * {
+  animation: navItemFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.site-header nav > *:nth-child(1) { animation-delay: 0.22s; }
+.site-header nav > *:nth-child(2) { animation-delay: 0.28s; }
+.site-header nav > *:nth-child(3) { animation-delay: 0.34s; }
+.site-header nav > *:nth-child(4) { animation-delay: 0.40s; }
+
+.site-header .btn-primary {
+  animation: navItemFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s ease, box-shadow 0.2s ease;
+}
+.site-header .btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(0, 166, 81, 0.3);
+}
+
+.site-header .mobile-menu-toggle {
+  animation: navItemFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.dropdown-arrow {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+@keyframes headerSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes navItemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- Buttons ---------- */
@@ -229,11 +282,19 @@
 .reveal-stagger.visible > *:nth-child(6) { transition-delay: 300ms; }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-brand,
+  .site-header nav > *,
+  .site-header .btn-primary,
+  .site-header .mobile-menu-toggle,
   .reveal,
   .reveal-stagger > *,
   .page-progress,
   .back-to-top {
+    animation: none !important;
     transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

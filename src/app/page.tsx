@@ -3,7 +3,7 @@ import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/sections/ContactForm";
 import { getSiteSettings } from "@/data/site-settings";
-import { ArrowRight, Droplets, Phone, Mail, MapPin, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin, Check, Sparkles } from "lucide-react";
 
 export default function HomePage() {
   const settings = getSiteSettings();
@@ -163,8 +163,8 @@ export default function HomePage() {
           <Reveal stagger className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
             <Link href="/products#aquaenv" className="card sm:row-span-2 rounded-2xl p-8 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-blue/10 text-blue">
-                  <Droplets size={26} strokeWidth={2} />
+                <div className="w-14 h-14 mb-6 relative">
+                  <Image src="/images/logos/aquaenv-logo.png" alt="AquaEnv" fill className="object-contain" />
                 </div>
                 <span className="text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full bg-blue/10 text-blue">
                   Môi trường
@@ -190,7 +190,7 @@ export default function HomePage() {
 
             <Link href="/products#saas-ke-toan" className="card rounded-2xl p-7">
               <div className="w-12 h-12 mb-5 relative">
-                <Image src="/images/logos/saas-accounting-logo.jpg" alt="SaaS Kế toán" fill className="object-contain" />
+                <Image src="/images/logos/saas-accounting-logo.png" alt="SaaS Kế toán" fill className="object-contain" />
               </div>
               <h3 className="font-semibold text-lg mb-2">SaaS Kế toán</h3>
               <p className="text-slate-600 text-sm">
@@ -253,6 +253,7 @@ export default function HomePage() {
                           alt="Giao diện ứng dụng OriginVN – Nông Nghiệp Số"
                           width={500}
                           height={1080}
+                          quality={95}
                           className="w-full h-auto object-cover block"
                         />
                       </div>
@@ -373,6 +374,7 @@ export default function HomePage() {
                 alt="Origin Trace Data Hub – Kết nối hệ sinh thái dữ liệu minh bạch giữa Cơ quan Nhà nước, Viện / Trung tâm, Doanh nghiệp, Địa phương và Đơn vị kiểm định"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 680px"
+                quality={95}
                 className="object-contain w-full h-full block"
                 priority
               />

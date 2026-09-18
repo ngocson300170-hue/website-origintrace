@@ -1,3 +1,4 @@
+import Image from "next/image";
 import clsx from "clsx";
 import Reveal from "@/components/ui/Reveal";
 import { Check, FlaskConical, Sprout, Fish, Droplets } from "lucide-react";
@@ -9,6 +10,7 @@ export default function IndustryBlock({
   title,
   description,
   points,
+  imageSrc,
   last = false,
 }: {
   id: string;
@@ -17,6 +19,7 @@ export default function IndustryBlock({
   title: string;
   description: string;
   points: string[];
+  imageSrc?: string;
   last?: boolean;
 }) {
   const getIcon = (size: number) => {
@@ -61,14 +64,27 @@ export default function IndustryBlock({
               ))}
             </div>
           </Reveal>
-          <Reveal>
-            <div className="relative">
-              <div className="rounded-2xl p-8 shadow-2xl" style={{ background: `linear-gradient(135deg, ${color}, ${color}80)` }}>
-                <div className="aspect-video flex items-center justify-center text-white opacity-90">
-                  {getIcon(110)}
+          <Reveal className="flex items-center justify-center">
+            {imageSrc ? (
+              <div className="relative rounded-3xl border border-slate-200/80 shadow-md overflow-hidden w-full aspect-square flex items-center justify-center bg-white">
+                <Image
+                  src={imageSrc}
+                  alt={title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  quality={95}
+                  className="object-cover w-full h-full block"
+                />
+              </div>
+            ) : (
+              <div className="relative w-full">
+                <div className="rounded-2xl p-8 shadow-2xl" style={{ background: `linear-gradient(135deg, ${color}, ${color}80)` }}>
+                  <div className="aspect-video flex items-center justify-center text-white opacity-90">
+                    {getIcon(110)}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </Reveal>
         </div>
       </div>

@@ -54,8 +54,16 @@ export default function ChemopsPage() {
               </Link>
             </div>
             <Reveal className="flex items-center justify-center">
-              <div className="relative w-full max-w-sm aspect-square">
-                <Image src="/images/logos/logo-chemops.jpg" alt="CHEMOPS" fill className="object-contain" />
+              <div className="relative w-full max-w-lg aspect-square rounded-3xl overflow-hidden border border-slate-200/80 shadow-lg bg-white">
+                <Image
+                  src="/images/products/chemops-dashboard-hd.jpg"
+                  alt="Nền tảng quản trị doanh nghiệp hóa chất CHEMOPS"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 560px"
+                  quality={95}
+                  className="object-cover w-full h-full block"
+                  priority
+                />
               </div>
             </Reveal>
           </div>

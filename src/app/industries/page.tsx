@@ -78,6 +78,7 @@ export default function IndustriesPage() {
           "Báo cáo sử dụng hóa chất theo quy định Sở TN&MT",
           "Quản lý chất thải nguy hại phát sinh",
         ]}
+        imageSrc="/images/industries/industry-chemical.jpg"
       />
 
       <IndustryBlock
@@ -92,6 +93,7 @@ export default function IndustriesPage() {
           "Định hướng phát triển: kết nối trực tiếp với nhà thu mua, xuất khẩu",
           "Định hướng phát triển: hỗ trợ đạt chứng nhận VietGAP, GlobalGAP",
         ]}
+        imageSrc="/images/industries/industry-agriculture.jpg"
       />
 
       <IndustryBlock
@@ -106,6 +108,7 @@ export default function IndustriesPage() {
           "Truy xuất nguồn gốc theo lô nuôi, vụ nuôi",
           "Đáp ứng tiêu chuẩn xuất khẩu thủy sản quốc tế",
         ]}
+        imageSrc="/images/industries/industry-aquaculture.jpg"
         last
       />
 
